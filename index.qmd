@@ -1,0 +1,66 @@
+---
+title: "Data wrangling in R"
+subtitle: "Amanyiraho Robinson"
+date: '[11:00 am EAT 1st-oct-2022]{style="color:red;"}'
+author: 
+- "{{< fa brands github >}} , {{< fa brands twitter >}} &commat;amanyiraho" 
+institute: 
+- "{{< fa business-time >}} Pearl data firm"
+include-in-header: meta.html
+format:
+  revealjs:
+    logo: images/logo.svg
+    incremental: true
+    self-contained: false 
+    theme: ["default", "css/pearl-data-firm.scss"]
+    history: false
+    code-overflow: wrap
+    df-print: default
+    touch: true
+    footer: ""
+    preview-links: true
+    code-link: true
+execute: 
+  echo: true
+title-slide-attributes: 
+  data-background-image: "images/dplyr-logo.png"
+  data-background-size: "10%"
+  data-background-position: "50% 90%"
+---
+
+## Setup {visibility="hidden"}
+
+```{r metathis, echo=FALSE, eval =T}
+
+
+library(metathis)
+
+meta() %>%
+  meta_name("github-repo" = "amanyiraho/data-wrangling-in-r/") %>%
+  meta_social(
+    title = "Data wrangling in R",
+    description = paste(
+      "Presented at Uganda R User Group, by Pearl data firm"
+    ),
+    url = "https://www.amanyiraho.com/data-wrangling-in-r/",
+    image = "https://raw.githubusercontent.com/amanyiraho/data-wrangling-in-r/slides/images/social-card.png",
+    image_alt = paste(
+      "Data wrangling in R,",
+      "Presented at Uganda R User Group in 01/09/2020 by Amanyiraho Robinson"
+    ),
+    og_type = "website",
+    og_author = "Amanyiraho Robinson",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@amanyiraho",
+    twitter_site = "@amanyiraho"
+  ) %>% write_meta("meta.html")
+
+
+```
+
+
+
+## Intro
+
+
+
