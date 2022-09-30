@@ -17,9 +17,11 @@ format:
     code-overflow: wrap
     df-print: default
     touch: true
-    footer: ""
+    footer: "[https://www.amanyiraho.com/data-wrangling-in-r/](https://www.amanyiraho.com/data-wrangling-in-r/)"
     preview-links: true
+    links-hover: true
     code-link: true
+highlight-style: a11y
 execute: 
   echo: true
 title-slide-attributes: 
@@ -60,7 +62,402 @@ meta() %>%
 
 
 
-## Intro
+## Agenda for Today
+
+-  What is data wrangling?
+- Why do it in R?
+  - What is and why dplyr?
+- Intro
 
 
+## About Me
+
+:::: {.columns}
+
+::: {.column width="65%"}
+
+- [(AFENET)]{style="color: #000080;"} [African Field Epidemiology Network]() - R shiny dashboard / Data visualization Developer
+
+- [Pearl data firm](https://www.pearldatafirm.com/) - Data Scientist/ Co-founder
+
+- [Certified RStudio Instructor](https://education.rstudio.com/trainers/people/robinson+amanyiraho/)
+
+- Founder [Uganda R User Group](https://twitter.com/Uganda_Ruser)
+
+- {{< fa brands github >}} [&commat;amanyiraho](https://github.com/amanyiraho)
+
+- {{< fa brands twitter >}} [&commat;amanyiraho](https://twitter.com/amanyiraho)
+
+- {{< fa envelope >}} amanyiraho@pearldatafirm.com
+
+:::
+
+::: {.column width="35%"}
+
+![](https://pbs.twimg.com/profile_images/1256400217789923332/vot5Mszu_400x400.jpg){style="border-radius: 50%;"}
+
+:::
+
+
+:::{.fragment}
+
+#### Packages
+
+*[dhis2r](https://github.com/pearldatafirm/dhis2r) - author*
+
+:::
+
+:::{.fragment}
+#### Talks about
+
+*R, python, SQL, shiny, powerBI, tableau, docker, kubernetes, AWS, dhis2*
+:::
+
+::::
+
+# What is data wrangling?{ background-color="black"}
+
+[A variety of processes designed to transform raw data into more readily used formats]{.fragment}
+
+# How do you wrangle data? { background-color="black"}
+
+# First question: What exactly, do you want to do? { background-color="black"}
+
+## For example
+
+- Do you want to `filter` data based on condition?
+
+- Do you want to `select` specific columns out of a bigger a dataframe?
+
+- Do you want to carry out a computation e.g mean , across `groups` of a specific variable?
+
+- Do you want to `arrange` you dataframe based on a specific column?
+
+:::{.fragment}
+ **Guess what dplyr It provides simple “verbs”, functions each basic verb of data manipulation like the ones highlighted above**
+:::
+
+
+# What is dplyr?
+
+Dplyr is an R package which implements a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges
+
+## Most popular functions in the dplyr? 
+
+:::{.nonincremental}
+- mutate() adds new variables that are functions of existing variables.
+
+- select() picks variables based on their names.
+
+- filter() picks cases based on their values.
+
+- summarise() reduces multiple values down to a single summary.
+
+- arrange() changes the ordering of the rows.
+
+- group_by() you can perform computation across groups of a variable 
+:::
+
+## Installation
+
+Install dplyr from CRAN
+```{r}
+#| eval: false
+install.packages("dplyr")
+```
+
+
+:::{.fragment}
+Development version from Github
+
+```{r}
+#| eval: false
+install.packages("devtools")
+devtools::install_github("tidyverse/dplyr")
+```
+:::
+
+:::{.fragment}
+Alternatively, install the whole tidyverse
+
+```{r}
+#| eval: false
+install.packages("tidyverse")
+```
+:::
+
+
+# Where is dplyr's place in the tidyverse? {background-color="black"}
+
+
+## {.right background-image="images/tidyverse.png" background-size="80%" background-position="50% 35%" alt="schematic including hex logos for the 9 tidyverse packages, readr, ggplot2, forcats, tidyr, tibble, dplyr, stringr, purrr, and lubridate"} 
+
+# Lets look at some common examples?
+
+## Let's first read in some data !!
+
+Some ugandan KCCA  registered private garbage collectors 2012-2013 from 
+[Data.Ug](http://catalog.data.ug/dataset/http-www-kcca-go-ug-uploads-garbage-collectors-dec12-pdf/resource/2e37ee6d-6a60-4ee7-8d8f-30727af12fc4)
+
+```{r}
+#| code-fold: true
+library(readr)
+library(dplyr)
+garbage_collectors <- read_csv("./data/kcca-registered-private-garbage-collectors-2012-2013.csv") %>% 
+  relocate(`RECORDS AT KITEZI`,.after = `COMPANY NAME.`)
+reactable::reactable(head(garbage_collectors, 2))
+```
+
+
+# Examples 
+
+## filter()
+
+```{r}
+ filter(garbage_collectors, `RECORDS AT KITEZI` == "Seen")
+```
+
+## slice()
+
+```{r}
+slice( garbage_collectors, 5:10)
+```
+
+## arrange() 
+
+```{r}
+arrange(garbage_collectors, `COMPANY NAME.`)
+```
+
+
+# The pipe {background-image="images/pipe.jpg" background-size="contain" background-position="right" background-color="black"}
+
+::: footer
+[Photo by Henry & Co. from unsplash.com](https://unsplash.com/photos/GHh1wsBYLiQ)
+:::
+
+
+## Use %>% or |> as a pipe
+
+
+dplyr provides the `%>%` operator from magrittr package.
+
+So the result from one step is then `piped` into the next step
+
+
+[x %>% f(y) turns into f(x, y)]{.fragment}
+
+[*OR*]{.fragment} 
+
+[x |> f(y) turns into f(x, y)]{.fragment}
+
+
+[You read the pipe as `Then`]{.fragment}
+
+# Examples using the pipe
+
+## filter() with the pipe
+
+```{r}
+garbage_collectors %>% 
+  filter( `RECORDS AT KITEZI` == "Seen")
+```
+
+## slice() with the pipe
+
+```{r}
+garbage_collectors %>% 
+  slice( 5:10)
+```
+## arrange() with the pipe
+
+```{r}
+garbage_collectors %>% 
+  arrange( `COMPANY NAME.`)
+```
+
+## You can use the pipe to combine several steps in you analysis
+
+Imagine a question from your KCCA boss like:
+
+Please, send me a dataset of only 5 rows whose records where seen at kitezi, arranged in alphabetical order.
+
+
+# Instead of the following steps
+
+## Step 1 {auto-animate="true"}
+
+```{r}
+garbage_collectors_seen <- garbage_collectors %>% 
+  filter( `RECORDS AT KITEZI` == "Seen") 
+
+garbage_collectors_seen
+```
+
+## Step 2 {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "4-5"
+garbage_collectors_seen <- garbage_collectors %>% 
+  filter( `RECORDS AT KITEZI` == "Seen")
+
+garbage_collectors_seen_arranged <- garbage_collectors_seen %>% 
+    arrange( `COMPANY NAME.`)
+
+garbage_collectors_seen_arranged
+```
+
+
+## Step 3 {auto-animate="true"}
+```{r}
+#| code-line-numbers: "7-10"
+garbage_collectors_seen <- garbage_collectors %>% 
+  filter( `RECORDS AT KITEZI` == "Seen")
+
+garbage_collectors_seen_arranged <- garbage_collectors_seen %>% 
+    arrange( `COMPANY NAME.`)
+
+garbage_collectors_seen_arranged_sliced <- garbage_collectors_seen_arranged %>% 
+  slice( 1:5)
+
+garbage_collectors_seen_arranged_sliced
+```
+
+
+## You can have something like this {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "2|3|4"
+garbage_collectors %>% 
+  filter( `RECORDS AT KITEZI` == "Seen") %>% 
+  arrange( `COMPANY NAME.`) %>% 
+  slice( 1:5)
+
+```
+
+## OR With the base pipe {auto-animate="true"}
+
+```{r}
+
+garbage_collectors |>
+  filter( `RECORDS AT KITEZI` == "Seen") |>
+  arrange( `COMPANY NAME.`) |>
+  slice( 1:5)
+
+```
+
+
+# What about data wrangling with columns:
+
+## With columns your vibes may be
+
+- `select()` changes whether or not a column is included.
+- `rename()` changes the name of columns.
+- `mutate()` changes the values of columns and creates new columns.
+- `relocate()` changes column order
+
+:::{.fragment}
+### Which column names do we have
+
+```{r}
+names(garbage_collectors)
+```
+
+:::
+
+## select {auto-animate="true"}
+
+```{r}
+garbage_collectors %>% 
+  select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
+         `LOGISTIC CAPACITY`, `AREA OF OPERATION`)
+
+```
+
+## rename {auto-animate="true"}
+
+```{r}
+
+garbage_collectors %>% 
+  select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
+         `LOGISTIC CAPACITY`, `AREA OF OPERATION`) %>%
+  rename("company_name" = `COMPANY NAME.`,
+      "kcca_license" = `KCCA LICENSE`,
+      "logistic_capacity" = `LOGISTIC CAPACITY`,
+      "area_of_operation" = `AREA OF OPERATION`,
+      "records_at_kitezi" = `RECORDS AT KITEZI`) 
+
+```
+
+## mutate {auto-animate="true"}
+
+```{r}
+
+garbage_collectors %>% 
+  select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
+         `LOGISTIC CAPACITY`, `AREA OF OPERATION`) %>%
+  rename("company_name" = `COMPANY NAME.`,
+      "kcca_license" = `KCCA LICENSE`,
+      "logistic_capacity" = `LOGISTIC CAPACITY`,
+      "area_of_operation" = `AREA OF OPERATION`,
+      "records_at_kitezi" = `RECORDS AT KITEZI`) %>% 
+  mutate(records_exist = if_else(records_at_kitezi == "seen", "Yes", "No"))
+  
+
+```
+
+
+## relocate {auto-animate="true"}
+
+```{r}
+
+garbage_collectors %>% 
+  select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
+         `LOGISTIC CAPACITY`, `AREA OF OPERATION`) %>%
+  rename("company_name" = `COMPANY NAME.`,
+      "kcca_license" = `KCCA LICENSE`,
+      "logistic_capacity" = `LOGISTIC CAPACITY`,
+      "area_of_operation" = `AREA OF OPERATION`,
+      "records_at_kitezi" = `RECORDS AT KITEZI`) %>% 
+  mutate(records_exist = if_else(records_at_kitezi == "seen", "Yes", "No")) %>% 
+  relocate(records_exist,.after = records_at_kitezi)
+  
+
+```
+
+# Group by
+
+## Step 1: Identify the column you want to group by {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "2"
+garbage_collectors %>% 
+  group_by(`LOGISTIC CAPACITY`)
+```
+
+## Step 2 summarise {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "3"
+garbage_collectors %>% 
+  group_by(`LOGISTIC CAPACITY`) %>% 
+  summarise(number = n())
+
+```
+
+## Step 3: You can do other computation {auto-animate="true"}
+
+```{r}
+#| code-line-numbers: "4"
+
+garbage_collectors %>% 
+  group_by(`LOGISTIC CAPACITY`) %>% 
+  summarise(number = n()) %>% 
+  arrange(desc(number))
+
+```
+
+## Resources 
+
+## Questions!!
 

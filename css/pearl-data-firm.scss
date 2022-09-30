@@ -39,11 +39,8 @@ $dark-bg-code-color: #ffa07a !default;
 // headings
 $presentation-heading-font: "Lora", sans-serif !default;
 $presentation-heading-color: $pearldata-red !default;
-$presentation-h1-font-size: 2.2em !default; //2.5em
-$presentation-h2-font-size: 1.4em !default; //1.6em
-$presentation-h3-font-size: 1.2em !default; //1.3em
-$presentation-h4-font-size: 1.15em !default; //1.3em
 
+$presentation-title-slide-text-align: center;
 $presentation-font-size-root: 25px !default;
 $presentation-font-smaller: 0.7 !default;
 $presentation-line-height: 1.25em !default;
@@ -64,6 +61,7 @@ $code-block-font-size: 0.8em !default;
   text-decoration: none;
 }
 
+/*
 // title slide
 #title-slide {
   .title  {
@@ -89,7 +87,7 @@ $code-block-font-size: 0.8em !default;
 }
 
 .reveal {
-  h2 {
+ h1, h2 {
     font-family: "Lora", serif;
   }
 
@@ -119,107 +117,4 @@ $code-block-font-size: 0.8em !default;
   text-align: right;
 }
 
-// logo
-/*.reveal .slide-logo {
-  position: absolute;
-  top: 2%;
-  right: 2% !important;
-  max-height: none !important;
-  height: 7% !important;
-}*/
-
-
-
-
-// wip: code
-//.reveal pre.sourceCode {
-  //display: flex;
-  //flex-wrap: wrap !important;
-//}
-
-// inline code
-.reveal code {
-  color: $rl-purple-bright;
-  background-color: $rl-purple-light;
-}
-
-// smaller text
-.small-text {
-  font-size: 80%;
-}
-
-// horizontal bar
-
-hr {
-  color: $rl-purple-bright;
-}
-
-// panel tabs
-
-// line under tabs
-.panel-tabset [role="tablist"] {
-  border-bottom-width: 1px;
-}
-
-// inactive tabs
-.panel-tabset [role="tab"] {
-  border-color: #fff #fff transparent; // top sides bottom
-}
-
-// hover
-.panel-tabset [role="tab"]:hover:not([aria-selected="true"]) {
-  border-color: #b1b1b1 #b1b1b1 transparent; // top sides bottom
-}
-
-// selected tab
-.panel-tabset [role="tab"][aria-selected="true"] {
- // border-bottom-color: #fff !important;
-}
-
-// from xaringanExtra
-.panelset .panel-tabs .panel-tab.panel-tab-active {
-  border-top-color: currentColor;
-  color: currentColor;
-  background-color: var(--panel-tab-active-background);
-  opacity: 1;
-}
-
-.panelset .panel-tabs .panel-tab:hover {
-  border-bottom-color: red;
-  color: currentColor;
-  background-color: var(--panel-tab-hover-background);
-  opacity: 1;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.panelset .panel-tabs .panel-tab {
-  min-height: 50px;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  padding: 0.5em 1em;
-  font-family: var(--panel-tab-font-family);
-  opacity: var(--panel-tab-inactive-opacity);
-  border-top: transparent;
-    border-top-color: transparent;
-  border-bottom: 2px solid transparent;
-    border-bottom-color: transparent;
-  margin-bottom: -2px;
-  color: currentColor;
-  background-color: var(--panel-tab-background);
-  list-style: none;
-  z-index: 5;
-}
-
-.panelset .panel-tabs * {
-  -webkit-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
-}
-
-.panelset * {
-  box-sizing: border-box;
-}
+*/

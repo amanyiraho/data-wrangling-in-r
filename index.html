@@ -30,6 +30,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #767676;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #767676;  padding-left: 4px; }
+    div.sourceCode
+      { color: #545454; background-color: #fefefe; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #545454; } /* Normal */
+    code span.al { color: #7928a1; } /* Alert */
+    code span.an { color: #696969; } /* Annotation */
+    code span.at { color: #aa5d00; } /* Attribute */
+    code span.bn { color: #7928a1; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #d91e18; } /* ControlFlow */
+    code span.ch { color: #008000; } /* Char */
+    code span.cn { color: #d91e18; } /* Constant */
+    code span.co { color: #696969; } /* Comment */
+    code span.cv { color: #696969; font-style: italic; } /* CommentVar */
+    code span.do { color: #696969; font-style: italic; } /* Documentation */
+    code span.dt { color: #7928a1; } /* DataType */
+    code span.dv { color: #7928a1; } /* DecVal */
+    code span.er { color: #7928a1; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #aa5d00; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #696969; } /* Information */
+    code span.kw { color: #d91e18; } /* Keyword */
+    code span.op { color: #007faa; } /* Operator */
+    code span.ot { color: #d91e18; } /* Other */
+    code span.pp { color: #7928a1; } /* Preprocessor */
+    code span.sc { color: #007faa; } /* SpecialChar */
+    code span.ss { color: #008000; } /* SpecialString */
+    code span.st { color: #008000; } /* String */
+    code span.va { color: #aa5d00; } /* Variable */
+    code span.vs { color: #008000; } /* VerbatimString */
+    code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
 <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
 <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -337,6 +401,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="Amanyiraho Robinson">
+<script src="index_files/libs/core-js-2.5.3/shim.min.js"></script><script src="index_files/libs/react-17.0.0/react.min.js"></script><script src="index_files/libs/react-17.0.0/react-dom.min.js"></script><script src="index_files/libs/reactwidget-1.0.0/react-tools.js"></script><script src="index_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="index_files/libs/reactable-binding-0.2.3/reactable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -347,12 +412,610 @@
   <p class="author"><i class="fa-brands fa-github" aria-hidden="true"></i> , <i class="fa-brands fa-twitter" aria-hidden="true"></i> @amanyiraho</p>
   <p class="institute"><i class="fa-solid fa-business-time" aria-hidden="true"></i> Pearl data firm</p>
   <p class="date"><span style="color:red;">11:00 am EAT 1st-oct-2022</span></p>
-</section><section id="intro" class="slide level2"><h2>Intro</h2>
+</section><section id="agenda-for-today" class="slide level2"><h2>Agenda for Today</h2>
+<ul>
+<li class="fragment">What is data wrangling?</li>
+<li class="fragment">Why do it in R?
+<ul>
+<li class="fragment">What is and why dplyr?</li>
+</ul>
+</li>
+<li class="fragment">Intro</li>
+</ul></section><section id="about-me" class="slide level2"><h2>About Me</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<ul>
+<li class="fragment"><p><span style="color: #000080;">(AFENET)</span> <a href="">African Field Epidemiology Network</a> - R shiny dashboard / Data visualization Developer</p></li>
+<li class="fragment"><p><a href="https://www.pearldatafirm.com/">Pearl data firm</a> - Data Scientist/ Co-founder</p></li>
+<li class="fragment"><p><a href="https://education.rstudio.com/trainers/people/robinson+amanyiraho/">Certified RStudio Instructor</a></p></li>
+<li class="fragment"><p>Founder <a href="https://twitter.com/Uganda_Ruser">Uganda R User Group</a></p></li>
+<li class="fragment"><p><i class="fa-brands fa-github" aria-hidden="true"></i> <a href="https://github.com/amanyiraho">@amanyiraho</a></p></li>
+<li class="fragment"><p><i class="fa-brands fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/amanyiraho">@amanyiraho</a></p></li>
+<li class="fragment"><p><i class="fa-solid fa-envelope" aria-hidden="true"></i> amanyiraho@pearldatafirm.com</p></li>
+</ul>
+</div><div class="column" style="width:35%;">
+<p><img data-src="https://pbs.twimg.com/profile_images/1256400217789923332/vot5Mszu_400x400.jpg" style="border-radius: 50%;"></p>
+</div>
+<div class="fragment">
+<!-- -->
+<h4 id="packages">Packages</h4>
+<p><em><a href="https://github.com/pearldatafirm/dhis2r">dhis2r</a> - author</em></p>
+</div>
+<div class="fragment">
+<!-- -->
+<h4 id="talks-about">Talks about</h4>
+<p><em>R, python, SQL, shiny, powerBI, tableau, docker, kubernetes, AWS, dhis2</em></p>
+</div>
+</div>
+</section><section id="what-is-data-wrangling" class="title-slide slide level1 center" data-background-color="black"><h1>What is data wrangling?</h1>
+<p><span class="fragment">A variety of processes designed to transform raw data into more readily used formats</span></p>
+</section><section id="how-do-you-wrangle-data" class="title-slide slide level1 center" data-background-color="black"><h1>How do you wrangle data?</h1>
+
+</section><section><section id="first-question-what-exactly-do-you-want-to-do" class="title-slide slide level1 center" data-background-color="black"><h1>First question: What exactly, do you want to do?</h1>
+
+</section><section id="for-example" class="slide level2"><h2>For example</h2>
+<ul>
+<li class="fragment"><p>Do you want to <code>filter</code> data based on condition?</p></li>
+<li class="fragment"><p>Do you want to <code>select</code> specific columns out of a bigger a dataframe?</p></li>
+<li class="fragment"><p>Do you want to carry out a computation e.g mean , across <code>groups</code> of a specific variable?</p></li>
+<li class="fragment"><p>Do you want to <code>arrange</code> you dataframe based on a specific column?</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Guess what dplyr It provides simple “verbs”, functions each basic verb of data manipulation like the ones highlighted above</strong></p>
+</div>
+</section></section><section><section id="what-is-dplyr" class="title-slide slide level1 center"><h1>What is dplyr?</h1>
+<p>Dplyr is an R package which implements a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges</p>
+</section><section id="most-popular-functions-in-the-dplyr" class="slide level2"><h2>Most popular functions in the dplyr?</h2>
+<div>
+<ul>
+<li><p>mutate() adds new variables that are functions of existing variables.</p></li>
+<li><p>select() picks variables based on their names.</p></li>
+<li><p>filter() picks cases based on their values.</p></li>
+<li><p>summarise() reduces multiple values down to a single summary.</p></li>
+<li><p>arrange() changes the ordering of the rows.</p></li>
+<li><p>group_by() you can perform computation across groups of a variable</p></li>
+</ul>
+</div>
+</section><section id="installation" class="slide level2"><h2>Installation</h2>
+<p>Install dplyr from CRAN</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Development version from Github</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"tidyverse/dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Alternatively, install the whole tidyverse</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section></section><section><section id="where-is-dplyrs-place-in-the-tidyverse" class="title-slide slide level1 center" data-background-color="black"><h1>Where is dplyr’s place in the tidyverse?</h1>
+
+</section><section id="section" class="slide level2 right" data-background-image="images/tidyverse.png" data-background-size="80%" data-background-position="50% 35%" alt="schematic including hex logos for the 9 tidyverse packages, readr, ggplot2, forcats, tidyr, tibble, dplyr, stringr, purrr, and lubridate"><h2></h2>
+</section></section><section><section id="lets-look-at-some-common-examples" class="title-slide slide level1 center"><h1>Lets look at some common examples?</h1>
+
+</section><section id="lets-first-read-in-some-data" class="slide level2"><h2>Let’s first read in some data !!</h2>
+<p>Some ugandan KCCA registered private garbage collectors 2012-2013 from <a href="http://catalog.data.ug/dataset/http-www-kcca-go-ug-uploads-garbage-collectors-dec12-pdf/resource/2e37ee6d-6a60-4ee7-8d8f-30727af12fc4">Data.Ug</a></p>
+<div class="cell">
+<details><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>garbage_collectors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"./data/kcca-registered-private-garbage-collectors-2012-2013.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">relocate</span>(<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>,<span class="at">.after =</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>reactable<span class="sc">::</span><span class="fu">reactable</span>(<span class="fu">head</span>(garbage_collectors, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details><div class="cell-output-display">
+
+<div id="htmlwidget-bd5e77d53d73546bb28e" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bd5e77d53d73546bb28e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"NO.":[1,2],"COMPANY NAME.":["Orient City Cleaners","Urban Cleaners LTD"],"RECORDS AT KITEZI":["Seen","Seen"],"LOGISTIC CAPACITY":["3-trucks","4-trucks"],"KCCA LICENSE":["2012","2012"],"NEMA LICENSE":["2012","2012"],"CONTACTS":["414691480/772442276","392883148/782640602"],"AREA OF OPERATION":["Makindye, Nakawa, Rubaga, Kawempe Divisions.","Makerere zones, Kawempe zones, Rubaga Divisions."]},"columns":[{"accessor":"NO.","name":"NO.","type":"numeric"},{"accessor":"COMPANY NAME.","name":"COMPANY NAME.","type":"character"},{"accessor":"RECORDS AT KITEZI","name":"RECORDS AT KITEZI","type":"character"},{"accessor":"LOGISTIC CAPACITY","name":"LOGISTIC CAPACITY","type":"character"},{"accessor":"KCCA LICENSE","name":"KCCA LICENSE","type":"character"},{"accessor":"NEMA LICENSE","name":"NEMA LICENSE","type":"character"},{"accessor":"CONTACTS","name":"CONTACTS","type":"character"},{"accessor":"AREA OF OPERATION","name":"AREA OF OPERATION","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"e0f2e503ccb719fc30debe1a516e085d","key":"e0f2e503ccb719fc30debe1a516e085d"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section></section><section><section id="examples" class="title-slide slide level1 center"><h1>Examples</h1>
+
+</section><section id="filter" class="slide level2"><h2>filter()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a> <span class="fu">filter</span>(garbage_collectors, <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 8
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1     1 Orient City Cleaners   Seen             3-trucks         2012          
+ 2     2 Urban Cleaners LTD     Seen             4-trucks         2012          
+ 3     3 City Jua Kali Traders… Seen             2- trucks        2012          
+ 4     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 5     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 6     6 Home Care General Ent… Seen             1- truck         2011          
+ 7     7 Euro Refuse Managemen… Seen             2-trucks         2012          
+ 8     8 Uganda Skip Services   Seen             2- trucks        2011          
+ 9     9 Green Hope Uganda      Seen             2-trucks         Nil           
+10    10 Nusonic LTD            Seen             4-trucks         2012          
+11    11 Nabugabo Up Deal Join… Seen             Not Indicated    2012          
+12    12 Super Clean            Seen             1-truck          2012          
+13    13 A &amp; M Cleaning Servic… Seen             4-trucks         2012          
+14    14 Globe Clean Services   Seen             4-trucks,1-pick… 2011          
+15    15 Task Cleaning Service… Seen             Not Indicated    2012          
+16    16 Rwene Expert Cleaners  Seen             6- trucks        Nil           
+17    17 Fad Crystal Services … Seen             1-truck          2012          
+18    18 Hill Top Enterprises … Seen             4-trucks         Seen          
+19    19 Dewaste                Seen             2-trucks         Seen          
+20    20 General Machinery LTD… Seen             2-trucks 1-pick… 2012          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="slice" class="slide level2"><h2>slice()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">slice</span>( garbage_collectors, <span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+    NO. `COMPANY NAME.`         `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+  &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+1     5 Bins Kampala LTD        Seen             1- truck         2012          
+2     6 Home Care General Ente… Seen             1- truck         2011          
+3     7 Euro Refuse Management… Seen             2-trucks         2012          
+4     8 Uganda Skip Services    Seen             2- trucks        2011          
+5     9 Green Hope Uganda       Seen             2-trucks         Nil           
+6    10 Nusonic LTD             Seen             4-trucks         2012          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="arrange" class="slide level2"><h2>arrange()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">arrange</span>(garbage_collectors, <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 8
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1    13 A &amp; M Cleaning Servic… Seen             4-trucks         2012          
+ 2    65 Bamutaasa Cleaner's D… &lt;NA&gt;             Not Indicated    2012          
+ 3    56 Becca Contractors(U) … &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          
+ 4    43 Ben City(U) Ltd        &lt;NA&gt;             1-truck          2010          
+ 5     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 6    30 Binned Africa (U)Ltd   &lt;NA&gt;             1- truck         Nil           
+ 7     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 8    28 Bisons Consult Intern… &lt;NA&gt;             3- trucks,3- tr… 2012          
+ 9    75 Bukesa Urban Farmers,… &lt;NA&gt;             &lt;NA&gt;             Nil           
+10    52 Capital cleaning serv… -                2-Forwards       &lt;NA&gt;          
+# … with 66 more rows, and 3 more variables: `NEMA LICENSE` &lt;chr&gt;,
+#   CONTACTS &lt;chr&gt;, `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section></section><section><section id="the-pipe" class="title-slide slide level1 center" data-background-image="images/pipe.jpg" data-background-size="contain" data-background-position="right" data-background-color="black"><h1>The pipe</h1>
+<div class="footer">
+<p><a href="https://unsplash.com/photos/GHh1wsBYLiQ">Photo by Henry &amp; Co.&nbsp;from unsplash.com</a></p>
+</div>
+</section><section id="use-or-as-a-pipe" class="slide level2"><h2>Use %&gt;% or |&gt; as a pipe</h2>
+<p>dplyr provides the <code>%&gt;%</code> operator from magrittr package.</p>
+<p>So the result from one step is then <code>piped</code> into the next step</p>
+<p><span class="fragment">x %&gt;% f(y) turns into f(x, y)</span></p>
+<p><span class="fragment"><em>OR</em></span></p>
+<p><span class="fragment">x |&gt; f(y) turns into f(x, y)</span></p>
+<p><span class="fragment">You read the pipe as <code>Then</code></span></p>
+</section></section><section><section id="examples-using-the-pipe" class="title-slide slide level1 center"><h1>Examples using the pipe</h1>
+
+</section><section id="filter-with-the-pipe" class="slide level2"><h2>filter() with the pipe</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>( <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 8
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1     1 Orient City Cleaners   Seen             3-trucks         2012          
+ 2     2 Urban Cleaners LTD     Seen             4-trucks         2012          
+ 3     3 City Jua Kali Traders… Seen             2- trucks        2012          
+ 4     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 5     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 6     6 Home Care General Ent… Seen             1- truck         2011          
+ 7     7 Euro Refuse Managemen… Seen             2-trucks         2012          
+ 8     8 Uganda Skip Services   Seen             2- trucks        2011          
+ 9     9 Green Hope Uganda      Seen             2-trucks         Nil           
+10    10 Nusonic LTD            Seen             4-trucks         2012          
+11    11 Nabugabo Up Deal Join… Seen             Not Indicated    2012          
+12    12 Super Clean            Seen             1-truck          2012          
+13    13 A &amp; M Cleaning Servic… Seen             4-trucks         2012          
+14    14 Globe Clean Services   Seen             4-trucks,1-pick… 2011          
+15    15 Task Cleaning Service… Seen             Not Indicated    2012          
+16    16 Rwene Expert Cleaners  Seen             6- trucks        Nil           
+17    17 Fad Crystal Services … Seen             1-truck          2012          
+18    18 Hill Top Enterprises … Seen             4-trucks         Seen          
+19    19 Dewaste                Seen             2-trucks         Seen          
+20    20 General Machinery LTD… Seen             2-trucks 1-pick… 2012          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="slice-with-the-pipe" class="slide level2"><h2>slice() with the pipe</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">slice</span>( <span class="dv">5</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+    NO. `COMPANY NAME.`         `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+  &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+1     5 Bins Kampala LTD        Seen             1- truck         2012          
+2     6 Home Care General Ente… Seen             1- truck         2011          
+3     7 Euro Refuse Management… Seen             2-trucks         2012          
+4     8 Uganda Skip Services    Seen             2- trucks        2011          
+5     9 Green Hope Uganda       Seen             2-trucks         Nil           
+6    10 Nusonic LTD             Seen             4-trucks         2012          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="arrange-with-the-pipe" class="slide level2"><h2>arrange() with the pipe</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">arrange</span>( <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 8
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1    13 A &amp; M Cleaning Servic… Seen             4-trucks         2012          
+ 2    65 Bamutaasa Cleaner's D… &lt;NA&gt;             Not Indicated    2012          
+ 3    56 Becca Contractors(U) … &lt;NA&gt;             &lt;NA&gt;             &lt;NA&gt;          
+ 4    43 Ben City(U) Ltd        &lt;NA&gt;             1-truck          2010          
+ 5     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 6    30 Binned Africa (U)Ltd   &lt;NA&gt;             1- truck         Nil           
+ 7     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 8    28 Bisons Consult Intern… &lt;NA&gt;             3- trucks,3- tr… 2012          
+ 9    75 Bukesa Urban Farmers,… &lt;NA&gt;             &lt;NA&gt;             Nil           
+10    52 Capital cleaning serv… -                2-Forwards       &lt;NA&gt;          
+# … with 66 more rows, and 3 more variables: `NEMA LICENSE` &lt;chr&gt;,
+#   CONTACTS &lt;chr&gt;, `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="you-can-use-the-pipe-to-combine-several-steps-in-you-analysis" class="slide level2"><h2>You can use the pipe to combine several steps in you analysis</h2>
+<p>Imagine a question from your KCCA boss like:</p>
+<p>Please, send me a dataset of only 5 rows whose records where seen at kitezi, arranged in alphabetical order.</p>
+</section></section><section><section id="instead-of-the-following-steps" class="title-slide slide level1 center"><h1>Instead of the following steps</h1>
+
+</section><section id="step-1" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb17-1" class="hljs-ln-code"><a href="#cb17-1"></a>garbage_collectors_seen <span class="ot">&lt;-</span> garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2" class="hljs-ln-code"><a href="#cb17-2"></a>  <span class="fu">filter</span>( <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>) </span>
+<span id="cb17-3" class="hljs-ln-code"><a href="#cb17-3"></a></span>
+<span id="cb17-4" class="hljs-ln-code"><a href="#cb17-4"></a>garbage_collectors_seen</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 8
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1     1 Orient City Cleaners   Seen             3-trucks         2012          
+ 2     2 Urban Cleaners LTD     Seen             4-trucks         2012          
+ 3     3 City Jua Kali Traders… Seen             2- trucks        2012          
+ 4     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 5     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 6     6 Home Care General Ent… Seen             1- truck         2011          
+ 7     7 Euro Refuse Managemen… Seen             2-trucks         2012          
+ 8     8 Uganda Skip Services   Seen             2- trucks        2011          
+ 9     9 Green Hope Uganda      Seen             2-trucks         Nil           
+10    10 Nusonic LTD            Seen             4-trucks         2012          
+11    11 Nabugabo Up Deal Join… Seen             Not Indicated    2012          
+12    12 Super Clean            Seen             1-truck          2012          
+13    13 A &amp; M Cleaning Servic… Seen             4-trucks         2012          
+14    14 Globe Clean Services   Seen             4-trucks,1-pick… 2011          
+15    15 Task Cleaning Service… Seen             Not Indicated    2012          
+16    16 Rwene Expert Cleaners  Seen             6- trucks        Nil           
+17    17 Fad Crystal Services … Seen             1-truck          2012          
+18    18 Hill Top Enterprises … Seen             4-trucks         Seen          
+19    19 Dewaste                Seen             2-trucks         Seen          
+20    20 General Machinery LTD… Seen             2-trucks 1-pick… 2012          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="step-2" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb19-1" class="hljs-ln-code"><a href="#cb19-1"></a>garbage_collectors_seen <span class="ot">&lt;-</span> garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2" class="hljs-ln-code"><a href="#cb19-2"></a>  <span class="fu">filter</span>( <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>)</span>
+<span id="cb19-3" class="hljs-ln-code"><a href="#cb19-3"></a></span>
+<span id="cb19-4" class="hljs-ln-code"><a href="#cb19-4"></a>garbage_collectors_seen_arranged <span class="ot">&lt;-</span> garbage_collectors_seen <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5" class="hljs-ln-code"><a href="#cb19-5"></a>    <span class="fu">arrange</span>( <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>)</span>
+<span id="cb19-6" class="hljs-ln-code"><a href="#cb19-6"></a></span>
+<span id="cb19-7" class="hljs-ln-code"><a href="#cb19-7"></a>garbage_collectors_seen_arranged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 8
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1    13 A &amp; M Cleaning Servic… Seen             4-trucks         2012          
+ 2     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 3     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 4     3 City Jua Kali Traders… Seen             2- trucks        2012          
+ 5    19 Dewaste                Seen             2-trucks         Seen          
+ 6     7 Euro Refuse Managemen… Seen             2-trucks         2012          
+ 7    17 Fad Crystal Services … Seen             1-truck          2012          
+ 8    20 General Machinery LTD… Seen             2-trucks 1-pick… 2012          
+ 9    14 Globe Clean Services   Seen             4-trucks,1-pick… 2011          
+10     9 Green Hope Uganda      Seen             2-trucks         Nil           
+11    18 Hill Top Enterprises … Seen             4-trucks         Seen          
+12     6 Home Care General Ent… Seen             1- truck         2011          
+13    11 Nabugabo Up Deal Join… Seen             Not Indicated    2012          
+14    10 Nusonic LTD            Seen             4-trucks         2012          
+15     1 Orient City Cleaners   Seen             3-trucks         2012          
+16    16 Rwene Expert Cleaners  Seen             6- trucks        Nil           
+17    12 Super Clean            Seen             1-truck          2012          
+18    15 Task Cleaning Service… Seen             Not Indicated    2012          
+19     8 Uganda Skip Services   Seen             2- trucks        2011          
+20     2 Urban Cleaners LTD     Seen             4-trucks         2012          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="step-3" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 3</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="7-10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb21-1" class="hljs-ln-code"><a href="#cb21-1"></a>garbage_collectors_seen <span class="ot">&lt;-</span> garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2" class="hljs-ln-code"><a href="#cb21-2"></a>  <span class="fu">filter</span>( <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>)</span>
+<span id="cb21-3" class="hljs-ln-code"><a href="#cb21-3"></a></span>
+<span id="cb21-4" class="hljs-ln-code"><a href="#cb21-4"></a>garbage_collectors_seen_arranged <span class="ot">&lt;-</span> garbage_collectors_seen <span class="sc">%&gt;%</span> </span>
+<span id="cb21-5" class="hljs-ln-code"><a href="#cb21-5"></a>    <span class="fu">arrange</span>( <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>)</span>
+<span id="cb21-6" class="hljs-ln-code"><a href="#cb21-6"></a></span>
+<span id="cb21-7" class="hljs-ln-code"><a href="#cb21-7"></a>garbage_collectors_seen_arranged_sliced <span class="ot">&lt;-</span> garbage_collectors_seen_arranged <span class="sc">%&gt;%</span> </span>
+<span id="cb21-8" class="hljs-ln-code"><a href="#cb21-8"></a>  <span class="fu">slice</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb21-9" class="hljs-ln-code"><a href="#cb21-9"></a></span>
+<span id="cb21-10" class="hljs-ln-code"><a href="#cb21-10"></a>garbage_collectors_seen_arranged_sliced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+    NO. `COMPANY NAME.`         `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+  &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+1    13 A &amp; M Cleaning Services Seen             4-trucks         2012          
+2     4 BIN –IT Services LTD    Seen             7-trucks         2012          
+3     5 Bins Kampala LTD        Seen             1- truck         2012          
+4     3 City Jua Kali Traders … Seen             2- trucks        2012          
+5    19 Dewaste                 Seen             2-trucks         Seen          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="you-can-have-something-like-this" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">You can have something like this</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb23-1" class="hljs-ln-code"><a href="#cb23-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2" class="hljs-ln-code"><a href="#cb23-2"></a>  <span class="fu">filter</span>( <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3" class="hljs-ln-code"><a href="#cb23-3"></a>  <span class="fu">arrange</span>( <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4" class="hljs-ln-code"><a href="#cb23-4"></a>  <span class="fu">slice</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+    NO. `COMPANY NAME.`         `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+  &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+1    13 A &amp; M Cleaning Services Seen             4-trucks         2012          
+2     4 BIN –IT Services LTD    Seen             7-trucks         2012          
+3     5 Bins Kampala LTD        Seen             1- truck         2012          
+4     3 City Jua Kali Traders … Seen             2- trucks        2012          
+5    19 Dewaste                 Seen             2-trucks         Seen          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="or-with-the-base-pipe" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">OR With the base pipe</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb25-1" class="hljs-ln-code"><a href="#cb25-1"></a>garbage_collectors <span class="sc">|&gt;</span></span>
+<span id="cb25-2" class="hljs-ln-code"><a href="#cb25-2"></a>  <span class="fu">filter</span>( <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"Seen"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-3" class="hljs-ln-code"><a href="#cb25-3"></a>  <span class="fu">arrange</span>( <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb25-4" class="hljs-ln-code"><a href="#cb25-4"></a>  <span class="fu">slice</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 8
+    NO. `COMPANY NAME.`         `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+  &lt;dbl&gt; &lt;chr&gt;                   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+1    13 A &amp; M Cleaning Services Seen             4-trucks         2012          
+2     4 BIN –IT Services LTD    Seen             7-trucks         2012          
+3     5 Bins Kampala LTD        Seen             1- truck         2012          
+4     3 City Jua Kali Traders … Seen             2- trucks        2012          
+5    19 Dewaste                 Seen             2-trucks         Seen          
+# … with 3 more variables: `NEMA LICENSE` &lt;chr&gt;, CONTACTS &lt;chr&gt;,
+#   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section></section><section><section id="what-about-data-wrangling-with-columns" class="title-slide slide level1 center"><h1>What about data wrangling with columns:</h1>
+
+</section><section id="with-columns-your-vibes-may-be" class="slide level2"><h2>With columns your vibes may be</h2>
+<ul>
+<li class="fragment">
+<code>select()</code> changes whether or not a column is included.</li>
+<li class="fragment">
+<code>rename()</code> changes the name of columns.</li>
+<li class="fragment">
+<code>mutate()</code> changes the values of columns and creates new columns.</li>
+<li class="fragment">
+<code>relocate()</code> changes column order</li>
+</ul>
+<div class="fragment">
+<!-- -->
+<h3 id="which-column-names-do-we-have">Which column names do we have</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">names</span>(garbage_collectors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "NO."               "COMPANY NAME."     "RECORDS AT KITEZI"
+[4] "LOGISTIC CAPACITY" "KCCA LICENSE"      "NEMA LICENSE"     
+[7] "CONTACTS"          "AREA OF OPERATION"</code></pre>
+</div>
+</div>
+</div>
+</section><section id="select" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">select</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb29-1" class="hljs-ln-code"><a href="#cb29-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2" class="hljs-ln-code"><a href="#cb29-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
+<span id="cb29-3" class="hljs-ln-code"><a href="#cb29-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 5
+   `COMPANY NAME.`              `KCCA LICENSE` `RECORDS AT KI…` `LOGISTIC CAPA…`
+   &lt;chr&gt;                        &lt;chr&gt;          &lt;chr&gt;            &lt;chr&gt;           
+ 1 Orient City Cleaners         2012           Seen             3-trucks        
+ 2 Urban Cleaners LTD           2012           Seen             4-trucks        
+ 3 City Jua Kali Traders LTD    2012           Seen             2- trucks       
+ 4 BIN –IT Services LTD         2012           Seen             7-trucks        
+ 5 Bins Kampala LTD             2012           Seen             1- truck        
+ 6 Home Care General Enterpris… 2011           Seen             1- truck        
+ 7 Euro Refuse Management Ltd   2012           Seen             2-trucks        
+ 8 Uganda Skip Services         2011           Seen             2- trucks       
+ 9 Green Hope Uganda            Nil            Seen             2-trucks        
+10 Nusonic LTD                  2012           Seen             4-trucks        
+# … with 66 more rows, and 1 more variable: `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="rename" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">rename</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb31-1" class="hljs-ln-code"><a href="#cb31-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2" class="hljs-ln-code"><a href="#cb31-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
+<span id="cb31-3" class="hljs-ln-code"><a href="#cb31-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-4" class="hljs-ln-code"><a href="#cb31-4"></a>  <span class="fu">rename</span>(<span class="st">"company_name"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,</span>
+<span id="cb31-5" class="hljs-ln-code"><a href="#cb31-5"></a>      <span class="st">"kcca_license"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,</span>
+<span id="cb31-6" class="hljs-ln-code"><a href="#cb31-6"></a>      <span class="st">"logistic_capacity"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>,</span>
+<span id="cb31-7" class="hljs-ln-code"><a href="#cb31-7"></a>      <span class="st">"area_of_operation"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>,</span>
+<span id="cb31-8" class="hljs-ln-code"><a href="#cb31-8"></a>      <span class="st">"records_at_kitezi"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 5
+   company_name  kcca_license records_at_kite… logistic_capaci… area_of_operati…
+   &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
+ 1 Orient City … 2012         Seen             3-trucks         Makindye, Nakaw…
+ 2 Urban Cleane… 2012         Seen             4-trucks         Makerere zones,…
+ 3 City Jua Kal… 2012         Seen             2- trucks        Old Port Bell R…
+ 4 BIN –IT Serv… 2012         Seen             7-trucks         Organizations,I…
+ 5 Bins Kampala… 2012         Seen             1- truck         Kampala, Makind…
+ 6 Home Care Ge… 2011         Seen             1- truck         Kawempe I and I…
+ 7 Euro Refuse … 2012         Seen             2-trucks         Nakawa Division…
+ 8 Uganda Skip … 2011         Seen             2- trucks        Makindye, Nakaw…
+ 9 Green Hope U… Nil          Seen             2-trucks         Kiira Town Coun…
+10 Nusonic LTD   2012         Seen             4-trucks         Kawempe, Makind…
+# … with 66 more rows</code></pre>
+</div>
+</div>
+</section><section id="mutate" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">mutate</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb33-1" class="hljs-ln-code"><a href="#cb33-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2" class="hljs-ln-code"><a href="#cb33-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
+<span id="cb33-3" class="hljs-ln-code"><a href="#cb33-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-4" class="hljs-ln-code"><a href="#cb33-4"></a>  <span class="fu">rename</span>(<span class="st">"company_name"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,</span>
+<span id="cb33-5" class="hljs-ln-code"><a href="#cb33-5"></a>      <span class="st">"kcca_license"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,</span>
+<span id="cb33-6" class="hljs-ln-code"><a href="#cb33-6"></a>      <span class="st">"logistic_capacity"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>,</span>
+<span id="cb33-7" class="hljs-ln-code"><a href="#cb33-7"></a>      <span class="st">"area_of_operation"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>,</span>
+<span id="cb33-8" class="hljs-ln-code"><a href="#cb33-8"></a>      <span class="st">"records_at_kitezi"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-9" class="hljs-ln-code"><a href="#cb33-9"></a>  <span class="fu">mutate</span>(<span class="at">records_exist =</span> <span class="fu">if_else</span>(records_at_kitezi <span class="sc">==</span> <span class="st">"seen"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 6
+   company_name  kcca_license records_at_kite… logistic_capaci… area_of_operati…
+   &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
+ 1 Orient City … 2012         Seen             3-trucks         Makindye, Nakaw…
+ 2 Urban Cleane… 2012         Seen             4-trucks         Makerere zones,…
+ 3 City Jua Kal… 2012         Seen             2- trucks        Old Port Bell R…
+ 4 BIN –IT Serv… 2012         Seen             7-trucks         Organizations,I…
+ 5 Bins Kampala… 2012         Seen             1- truck         Kampala, Makind…
+ 6 Home Care Ge… 2011         Seen             1- truck         Kawempe I and I…
+ 7 Euro Refuse … 2012         Seen             2-trucks         Nakawa Division…
+ 8 Uganda Skip … 2011         Seen             2- trucks        Makindye, Nakaw…
+ 9 Green Hope U… Nil          Seen             2-trucks         Kiira Town Coun…
+10 Nusonic LTD   2012         Seen             4-trucks         Kawempe, Makind…
+# … with 66 more rows, and 1 more variable: records_exist &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="relocate" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">relocate</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a href="#cb35-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2" class="hljs-ln-code"><a href="#cb35-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
+<span id="cb35-3" class="hljs-ln-code"><a href="#cb35-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-4" class="hljs-ln-code"><a href="#cb35-4"></a>  <span class="fu">rename</span>(<span class="st">"company_name"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,</span>
+<span id="cb35-5" class="hljs-ln-code"><a href="#cb35-5"></a>      <span class="st">"kcca_license"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,</span>
+<span id="cb35-6" class="hljs-ln-code"><a href="#cb35-6"></a>      <span class="st">"logistic_capacity"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>,</span>
+<span id="cb35-7" class="hljs-ln-code"><a href="#cb35-7"></a>      <span class="st">"area_of_operation"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>,</span>
+<span id="cb35-8" class="hljs-ln-code"><a href="#cb35-8"></a>      <span class="st">"records_at_kitezi"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-9" class="hljs-ln-code"><a href="#cb35-9"></a>  <span class="fu">mutate</span>(<span class="at">records_exist =</span> <span class="fu">if_else</span>(records_at_kitezi <span class="sc">==</span> <span class="st">"seen"</span>, <span class="st">"Yes"</span>, <span class="st">"No"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-10" class="hljs-ln-code"><a href="#cb35-10"></a>  <span class="fu">relocate</span>(records_exist,<span class="at">.after =</span> records_at_kitezi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 6
+   company_name     kcca_license records_at_kite… records_exist logistic_capaci…
+   &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;           
+ 1 Orient City Cle… 2012         Seen             No            3-trucks        
+ 2 Urban Cleaners … 2012         Seen             No            4-trucks        
+ 3 City Jua Kali T… 2012         Seen             No            2- trucks       
+ 4 BIN –IT Service… 2012         Seen             No            7-trucks        
+ 5 Bins Kampala LTD 2012         Seen             No            1- truck        
+ 6 Home Care Gener… 2011         Seen             No            1- truck        
+ 7 Euro Refuse Man… 2012         Seen             No            2-trucks        
+ 8 Uganda Skip Ser… 2011         Seen             No            2- trucks       
+ 9 Green Hope Ugan… Nil          Seen             No            2-trucks        
+10 Nusonic LTD      2012         Seen             No            4-trucks        
+# … with 66 more rows, and 1 more variable: area_of_operation &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section></section><section><section id="group-by" class="title-slide slide level1 center"><h1>Group by</h1>
+
+</section><section id="step-1-identify-the-column-you-want-to-group-by" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 1: Identify the column you want to group by</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb37-1" class="hljs-ln-code"><a href="#cb37-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2" class="hljs-ln-code"><a href="#cb37-2"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 76 × 8
+# Groups:   LOGISTIC CAPACITY [29]
+     NO. `COMPANY NAME.`        `RECORDS AT KI…` `LOGISTIC CAPA…` `KCCA LICENSE`
+   &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;         
+ 1     1 Orient City Cleaners   Seen             3-trucks         2012          
+ 2     2 Urban Cleaners LTD     Seen             4-trucks         2012          
+ 3     3 City Jua Kali Traders… Seen             2- trucks        2012          
+ 4     4 BIN –IT Services LTD   Seen             7-trucks         2012          
+ 5     5 Bins Kampala LTD       Seen             1- truck         2012          
+ 6     6 Home Care General Ent… Seen             1- truck         2011          
+ 7     7 Euro Refuse Managemen… Seen             2-trucks         2012          
+ 8     8 Uganda Skip Services   Seen             2- trucks        2011          
+ 9     9 Green Hope Uganda      Seen             2-trucks         Nil           
+10    10 Nusonic LTD            Seen             4-trucks         2012          
+# … with 66 more rows, and 3 more variables: `NEMA LICENSE` &lt;chr&gt;,
+#   CONTACTS &lt;chr&gt;, `AREA OF OPERATION` &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section><section id="step-2-summarise" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 2 summarise</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb39-1" class="hljs-ln-code"><a href="#cb39-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2" class="hljs-ln-code"><a href="#cb39-2"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3" class="hljs-ln-code"><a href="#cb39-3"></a>  <span class="fu">summarise</span>(<span class="at">number =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 29 × 2
+   `LOGISTIC CAPACITY`    number
+   &lt;chr&gt;                   &lt;int&gt;
+ 1 -                           3
+ 2 1- truck                    9
+ 3 1-Elf                       1
+ 4 1-truck                     4
+ 5 1-truck 1-brush cutter      1
+ 6 2 trucks,1 renting          1
+ 7 2- trucks                   2
+ 8 2- trucks.                  1
+ 9 2-forward 1-elf             1
+10 2-Forwards                  1
+# … with 19 more rows</code></pre>
+</div>
+</div>
+</section><section id="step-3-you-can-do-other-computation" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 3: You can do other computation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb41-1" class="hljs-ln-code"><a href="#cb41-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2" class="hljs-ln-code"><a href="#cb41-2"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-3" class="hljs-ln-code"><a href="#cb41-3"></a>  <span class="fu">summarise</span>(<span class="at">number =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-4" class="hljs-ln-code"><a href="#cb41-4"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(number))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 29 × 2
+   `LOGISTIC CAPACITY` number
+   &lt;chr&gt;                &lt;int&gt;
+ 1 Not Indicated           18
+ 2 1- truck                 9
+ 3 2-trucks                 5
+ 4 4-trucks                 5
+ 5 1-truck                  4
+ 6 &lt;NA&gt;                     4
+ 7 -                        3
+ 8 3-trucks                 3
+ 9 Nil                      3
+10 2- trucks                2
+# … with 19 more rows</code></pre>
+</div>
+</div>
+</section><section id="resources" class="slide level2"><h2>Resources</h2>
+</section><section id="questions" class="slide level2"><h2>Questions!!</h2>
 
 <img src="images/logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
-
+<p><a href="https://www.amanyiraho.com/data-wrangling-in-r/">https://www.amanyiraho.com/data-wrangling-in-r/</a></p>
 </div>
-</section>
+</section></section>
 </div>
   </div>
 
