@@ -412,16 +412,7 @@
   <p class="author"><i class="fa-brands fa-github" aria-hidden="true"></i> , <i class="fa-brands fa-twitter" aria-hidden="true"></i> @amanyiraho</p>
   <p class="institute"><i class="fa-solid fa-business-time" aria-hidden="true"></i> Pearl data firm</p>
   <p class="date"><span style="color:red;">11:00 am EAT 1st-oct-2022</span></p>
-</section><section id="agenda-for-today" class="slide level2"><h2>Agenda for Today</h2>
-<ul>
-<li class="fragment">What is data wrangling?</li>
-<li class="fragment">Why do it in R?
-<ul>
-<li class="fragment">What is and why dplyr?</li>
-</ul>
-</li>
-<li class="fragment">Intro</li>
-</ul></section><section id="about-me" class="slide level2"><h2>About Me</h2>
+</section><section id="about-me" class="slide level2"><h2>About Me</h2>
 <div class="columns">
 <div class="column" style="width:65%;">
 <ul>
@@ -448,32 +439,32 @@
 </div>
 </div>
 </section><section id="what-is-data-wrangling" class="title-slide slide level1 center" data-background-color="black"><h1>What is data wrangling?</h1>
-<p><span class="fragment">A variety of processes designed to transform raw data into more readily used formats</span></p>
+<p><span class="fragment" style="color:#FFB52E;">A variety of processes designed to transform raw data into more readily used formats</span></p>
 </section><section id="how-do-you-wrangle-data" class="title-slide slide level1 center" data-background-color="black"><h1>How do you wrangle data?</h1>
 
 </section><section><section id="first-question-what-exactly-do-you-want-to-do" class="title-slide slide level1 center" data-background-color="black"><h1>First question: What exactly, do you want to do?</h1>
 
 </section><section id="for-example" class="slide level2"><h2>For example</h2>
 <ul>
-<li class="fragment"><p>Do you want to <code>filter</code> data based on condition?</p></li>
-<li class="fragment"><p>Do you want to <code>select</code> specific columns out of a bigger a dataframe?</p></li>
-<li class="fragment"><p>Do you want to carry out a computation e.g mean , across <code>groups</code> of a specific variable?</p></li>
-<li class="fragment"><p>Do you want to <code>arrange</code> you dataframe based on a specific column?</p></li>
+<li class="fragment"><p>Do you want to <span style="color:#9F2B00;"><strong>filter</strong></span> data based on condition?</p></li>
+<li class="fragment"><p>Do you want to <span style="color:#9F2B00;"><strong>select</strong></span> specific columns out of a bigger a dataframe?</p></li>
+<li class="fragment"><p>Do you want to carry out a computation e.g mean , across <span style="color:#9F2B00;"><strong>groups</strong></span> of a specific variable?</p></li>
+<li class="fragment"><p>Do you want to <span style="color:#9F2B00;"><strong>arrange</strong></span> you dataframe based on a specific column?</p></li>
 </ul>
 <div class="fragment">
-<p><strong>Guess what dplyr It provides simple “verbs”, functions each basic verb of data manipulation like the ones highlighted above</strong></p>
+<p><span style="color:#9F2B00;"><strong>Guess what dplyr It provides simple “verbs”, functions each basic verb of data manipulation like the ones highlighted above</strong></span></p>
 </div>
-</section></section><section><section id="what-is-dplyr" class="title-slide slide level1 center"><h1>What is dplyr?</h1>
-<p>Dplyr is an R package which implements a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges</p>
+</section></section><section><section id="what-is-dplyr" class="title-slide slide level1 center" data-background-color="black"><h1>What is dplyr?</h1>
+<p><span class="fragment" style="color:#FFB52E;"><strong>Dplyr is an R package which implements a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges</strong></span></p>
 </section><section id="most-popular-functions-in-the-dplyr" class="slide level2"><h2>Most popular functions in the dplyr?</h2>
 <div>
 <ul>
-<li><p>mutate() adds new variables that are functions of existing variables.</p></li>
-<li><p>select() picks variables based on their names.</p></li>
-<li><p>filter() picks cases based on their values.</p></li>
-<li><p>summarise() reduces multiple values down to a single summary.</p></li>
-<li><p>arrange() changes the ordering of the rows.</p></li>
-<li><p>group_by() you can perform computation across groups of a variable</p></li>
+<li><p><span style="color:#9F2B00;"><strong>mutate()</strong></span> adds new variables that are functions of existing variables.</p></li>
+<li><p><span style="color:#9F2B00;"><strong>select()</strong></span> picks variables based on their names.</p></li>
+<li><p><span style="color:#9F2B00;"><strong>filter()</strong></span> picks cases based on their values.</p></li>
+<li><p><span style="color:#9F2B00;"><strong>summarise()</strong></span> reduces multiple values down to a single summary.</p></li>
+<li><p><span style="color:#9F2B00;"><strong>arrange()</strong></span> changes the ordering of the rows.</p></li>
+<li><p><span style="color:#9F2B00;"><strong>group_by()</strong></span> you can perform computation across groups of a variable</p></li>
 </ul>
 </div>
 </section><section id="installation" class="slide level2"><h2>Installation</h2>
@@ -497,7 +488,7 @@
 </section></section><section><section id="where-is-dplyrs-place-in-the-tidyverse" class="title-slide slide level1 center" data-background-color="black"><h1>Where is dplyr’s place in the tidyverse?</h1>
 
 </section><section id="section" class="slide level2 right" data-background-image="images/tidyverse.png" data-background-size="80%" data-background-position="50% 35%" alt="schematic including hex logos for the 9 tidyverse packages, readr, ggplot2, forcats, tidyr, tibble, dplyr, stringr, purrr, and lubridate"><h2></h2>
-</section></section><section><section id="lets-look-at-some-common-examples" class="title-slide slide level1 center"><h1>Lets look at some common examples?</h1>
+</section></section><section><section id="lets-look-at-some-common-examples" class="title-slide slide level1 center" data-background-color="black"><h1>Lets look at some common examples?</h1>
 
 </section><section id="lets-first-read-in-some-data" class="slide level2"><h2>Let’s first read in some data !!</h2>
 <p>Some ugandan KCCA registered private garbage collectors 2012-2013 from <a href="http://catalog.data.ug/dataset/http-www-kcca-go-ug-uploads-garbage-collectors-dec12-pdf/resource/2e37ee6d-6a60-4ee7-8d8f-30727af12fc4">Data.Ug</a></p>
@@ -509,11 +500,11 @@
 <span id="cb4-5"><a href="#cb4-5"></a>reactable<span class="sc">::</span><span class="fu">reactable</span>(<span class="fu">head</span>(garbage_collectors, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details><div class="cell-output-display">
 
-<div id="htmlwidget-bd5e77d53d73546bb28e" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-bd5e77d53d73546bb28e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"NO.":[1,2],"COMPANY NAME.":["Orient City Cleaners","Urban Cleaners LTD"],"RECORDS AT KITEZI":["Seen","Seen"],"LOGISTIC CAPACITY":["3-trucks","4-trucks"],"KCCA LICENSE":["2012","2012"],"NEMA LICENSE":["2012","2012"],"CONTACTS":["414691480/772442276","392883148/782640602"],"AREA OF OPERATION":["Makindye, Nakawa, Rubaga, Kawempe Divisions.","Makerere zones, Kawempe zones, Rubaga Divisions."]},"columns":[{"accessor":"NO.","name":"NO.","type":"numeric"},{"accessor":"COMPANY NAME.","name":"COMPANY NAME.","type":"character"},{"accessor":"RECORDS AT KITEZI","name":"RECORDS AT KITEZI","type":"character"},{"accessor":"LOGISTIC CAPACITY","name":"LOGISTIC CAPACITY","type":"character"},{"accessor":"KCCA LICENSE","name":"KCCA LICENSE","type":"character"},{"accessor":"NEMA LICENSE","name":"NEMA LICENSE","type":"character"},{"accessor":"CONTACTS","name":"CONTACTS","type":"character"},{"accessor":"AREA OF OPERATION","name":"AREA OF OPERATION","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"e0f2e503ccb719fc30debe1a516e085d","key":"e0f2e503ccb719fc30debe1a516e085d"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7ce15f86189e6ed84456" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7ce15f86189e6ed84456">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"NO.":[1,2],"COMPANY NAME.":["Orient City Cleaners","Urban Cleaners LTD"],"RECORDS AT KITEZI":["Seen","Seen"],"LOGISTIC CAPACITY":["3-trucks","4-trucks"],"KCCA LICENSE":["2012","2012"],"NEMA LICENSE":["2012","2012"],"CONTACTS":["414691480/772442276","392883148/782640602"],"AREA OF OPERATION":["Makindye, Nakawa, Rubaga, Kawempe Divisions.","Makerere zones, Kawempe zones, Rubaga Divisions."]},"columns":[{"accessor":"NO.","name":"NO.","type":"numeric"},{"accessor":"COMPANY NAME.","name":"COMPANY NAME.","type":"character"},{"accessor":"RECORDS AT KITEZI","name":"RECORDS AT KITEZI","type":"character"},{"accessor":"LOGISTIC CAPACITY","name":"LOGISTIC CAPACITY","type":"character"},{"accessor":"KCCA LICENSE","name":"KCCA LICENSE","type":"character"},{"accessor":"NEMA LICENSE","name":"NEMA LICENSE","type":"character"},{"accessor":"CONTACTS","name":"CONTACTS","type":"character"},{"accessor":"AREA OF OPERATION","name":"AREA OF OPERATION","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"e0f2e503ccb719fc30debe1a516e085d","key":"e0f2e503ccb719fc30debe1a516e085d"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-</section></section><section><section id="examples" class="title-slide slide level1 center"><h1>Examples</h1>
+</section></section><section><section id="examples" class="title-slide slide level1 center" data-background-color="black"><h1>Examples</h1>
 
 </section><section id="filter" class="slide level2"><h2>filter()</h2>
 <div class="cell">
@@ -591,11 +582,11 @@
 </section><section id="use-or-as-a-pipe" class="slide level2"><h2>Use %&gt;% or |&gt; as a pipe</h2>
 <p>dplyr provides the <code>%&gt;%</code> operator from magrittr package.</p>
 <p>So the result from one step is then <code>piped</code> into the next step</p>
-<p><span class="fragment">x %&gt;% f(y) turns into f(x, y)</span></p>
-<p><span class="fragment"><em>OR</em></span></p>
-<p><span class="fragment">x |&gt; f(y) turns into f(x, y)</span></p>
+<p><span class="fragment" style="color:#9F2B00;">x %&gt;% f(y) turns into f(x, y)</span></p>
+<p><span class="fragment"><strong>OR</strong></span></p>
+<p><span class="fragment" style="color:#9F2B00;">x |&gt; f(y) turns into f(x, y)</span></p>
 <p><span class="fragment">You read the pipe as <code>Then</code></span></p>
-</section></section><section><section id="examples-using-the-pipe" class="title-slide slide level1 center"><h1>Examples using the pipe</h1>
+</section></section><section><section id="examples-using-the-pipe" class="title-slide slide level1 center" data-background-color="black"><h1>Examples using the pipe</h1>
 
 </section><section id="filter-with-the-pipe" class="slide level2"><h2>filter() with the pipe</h2>
 <div class="cell">
@@ -671,8 +662,8 @@
 </div>
 </section><section id="you-can-use-the-pipe-to-combine-several-steps-in-you-analysis" class="slide level2"><h2>You can use the pipe to combine several steps in you analysis</h2>
 <p>Imagine a question from your KCCA boss like:</p>
-<p>Please, send me a dataset of only 5 rows whose records where seen at kitezi, arranged in alphabetical order.</p>
-</section></section><section><section id="instead-of-the-following-steps" class="title-slide slide level1 center"><h1>Instead of the following steps</h1>
+<p>Please, send me a dataset of only 5 rows whose records were seen at kitezi, arranged in alphabetical order.</p>
+</section></section><section><section id="instead-of-the-following-steps" class="title-slide slide level1 center" data-background-color="black"><h1>Instead of the following steps</h1>
 
 </section><section id="step-1" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 1</h2>
 <div class="cell">
@@ -808,19 +799,20 @@
 #   `AREA OF OPERATION` &lt;chr&gt;</code></pre>
 </div>
 </div>
-</section></section><section><section id="what-about-data-wrangling-with-columns" class="title-slide slide level1 center"><h1>What about data wrangling with columns:</h1>
+</section></section><section><section id="what-about-data-wrangling-with-columns" class="title-slide slide level1 center" data-background-color="black"><h1>What about data wrangling with columns:</h1>
 
-</section><section id="with-columns-your-vibes-may-be" class="slide level2"><h2>With columns your vibes may be</h2>
+</section><section id="with-columns-your-verbsfunctions" class="slide level2"><h2>With columns your verbs/functions</h2>
 <ul>
 <li class="fragment">
-<code>select()</code> changes whether or not a column is included.</li>
+<span style="color:#9F2B00;"><strong>select()</strong></span> changes whether or not a column is included.</li>
 <li class="fragment">
-<code>rename()</code> changes the name of columns.</li>
+<span style="color:#9F2B00;"><strong>rename()</strong></span> changes the name of columns.</li>
 <li class="fragment">
-<code>mutate()</code> changes the values of columns and creates new columns.</li>
+<span style="color:#9F2B00;"><strong>mutate()</strong></span> changes the values of columns and creates new columns.</li>
 <li class="fragment">
-<code>relocate()</code> changes column order</li>
+<span style="color:#9F2B00;"><strong>relocate()</strong></span> changes column order</li>
 </ul>
+<h3 id="but-first"><span class="fragment">But first,</span></h3>
 <div class="fragment">
 <!-- -->
 <h3 id="which-column-names-do-we-have">Which column names do we have</h3>
@@ -835,7 +827,7 @@
 </div>
 </section><section id="select" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">select</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb29-1" class="hljs-ln-code"><a href="#cb29-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb29-1" class="hljs-ln-code"><a href="#cb29-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
 <span id="cb29-2" class="hljs-ln-code"><a href="#cb29-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
 <span id="cb29-3" class="hljs-ln-code"><a href="#cb29-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -857,7 +849,7 @@
 </div>
 </section><section id="rename" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">rename</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb31-1" class="hljs-ln-code"><a href="#cb31-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="4-8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb31-1" class="hljs-ln-code"><a href="#cb31-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
 <span id="cb31-2" class="hljs-ln-code"><a href="#cb31-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
 <span id="cb31-3" class="hljs-ln-code"><a href="#cb31-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb31-4" class="hljs-ln-code"><a href="#cb31-4"></a>  <span class="fu">rename</span>(<span class="st">"company_name"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,</span>
@@ -884,7 +876,7 @@
 </div>
 </section><section id="mutate" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">mutate</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb33-1" class="hljs-ln-code"><a href="#cb33-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb33-1" class="hljs-ln-code"><a href="#cb33-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
 <span id="cb33-2" class="hljs-ln-code"><a href="#cb33-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
 <span id="cb33-3" class="hljs-ln-code"><a href="#cb33-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb33-4" class="hljs-ln-code"><a href="#cb33-4"></a>  <span class="fu">rename</span>(<span class="st">"company_name"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,</span>
@@ -912,7 +904,7 @@
 </div>
 </section><section id="relocate" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">relocate</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a href="#cb35-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a href="#cb35-1"></a>garbage_collectors <span class="sc">%&gt;%</span> </span>
 <span id="cb35-2" class="hljs-ln-code"><a href="#cb35-2"></a>  <span class="fu">select</span>(<span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,<span class="st">`</span><span class="at">KCCA LICENSE</span><span class="st">`</span>,<span class="st">`</span><span class="at">RECORDS AT KITEZI</span><span class="st">`</span>, </span>
 <span id="cb35-3" class="hljs-ln-code"><a href="#cb35-3"></a>         <span class="st">`</span><span class="at">LOGISTIC CAPACITY</span><span class="st">`</span>, <span class="st">`</span><span class="at">AREA OF OPERATION</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb35-4" class="hljs-ln-code"><a href="#cb35-4"></a>  <span class="fu">rename</span>(<span class="st">"company_name"</span> <span class="ot">=</span> <span class="st">`</span><span class="at">COMPANY NAME.</span><span class="st">`</span>,</span>
@@ -939,7 +931,7 @@
 # … with 66 more rows, and 1 more variable: area_of_operation &lt;chr&gt;</code></pre>
 </div>
 </div>
-</section></section><section><section id="group-by" class="title-slide slide level1 center"><h1>Group by</h1>
+</section></section><section><section id="group-by" class="title-slide slide level1 center" data-background-color="black"><h1>Group by</h1>
 
 </section><section id="step-1-identify-the-column-you-want-to-group-by" class="slide level2" data-auto-animate="true"><h2 data-id="quarto-animate-title">Step 1: Identify the column you want to group by</h2>
 <div class="cell">
@@ -1010,12 +1002,15 @@
 </div>
 </div>
 </section><section id="resources" class="slide level2"><h2>Resources</h2>
-</section><section id="questions" class="slide level2"><h2>Questions!!</h2>
+<ul>
+<li class="fragment"><p>https://dplyr.tidyverse.org/</p></li>
+<li class="fragment"><p>https://r4ds.had.co.nz/transform.html</p></li>
+</ul></section></section><section id="questions" class="title-slide slide level1 center" data-background-color="black"><h1>Questions!!</h1>
 
 <img src="images/logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
 <p><a href="https://www.amanyiraho.com/data-wrangling-in-r/">https://www.amanyiraho.com/data-wrangling-in-r/</a></p>
 </div>
-</section></section>
+</section>
 </div>
   </div>
 

@@ -61,15 +61,6 @@ meta() %>%
 ```
 
 
-
-## Agenda for Today
-
--  What is data wrangling?
-- Why do it in R?
-  - What is and why dplyr?
-- Intro
-
-
 ## About Me
 
 :::: {.columns}
@@ -117,7 +108,7 @@ meta() %>%
 
 # What is data wrangling?{ background-color="black"}
 
-[A variety of processes designed to transform raw data into more readily used formats]{.fragment}
+[A variety of processes designed to transform raw data into more readily used formats]{.fragment style="color:#FFB52E;"}
 
 # How do you wrangle data? { background-color="black"}
 
@@ -125,37 +116,37 @@ meta() %>%
 
 ## For example
 
-- Do you want to `filter` data based on condition?
+- Do you want to [**filter**]{style="color:#9F2B00;"} data based on condition?
 
-- Do you want to `select` specific columns out of a bigger a dataframe?
+- Do you want to [**select**]{style="color:#9F2B00;"} specific columns out of a bigger a dataframe?
 
-- Do you want to carry out a computation e.g mean , across `groups` of a specific variable?
+- Do you want to carry out a computation e.g mean , across [**groups**]{style="color:#9F2B00;"}  of a specific variable?
 
-- Do you want to `arrange` you dataframe based on a specific column?
+- Do you want to [**arrange**]{style="color:#9F2B00;"} you dataframe based on a specific column?
 
 :::{.fragment}
- **Guess what dplyr It provides simple “verbs”, functions each basic verb of data manipulation like the ones highlighted above**
+ [**Guess what dplyr It provides simple “verbs”, functions each basic verb of data manipulation like the ones highlighted above**]{style="color:#9F2B00;"}
 :::
 
 
-# What is dplyr?
+# What is dplyr? {background-color="black"}
 
-Dplyr is an R package which implements a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges
+[**Dplyr is an R package which implements a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges**]{.fragment style="color:#FFB52E;"}
 
 ## Most popular functions in the dplyr? 
 
 :::{.nonincremental}
-- mutate() adds new variables that are functions of existing variables.
+- [**mutate()**]{style="color:#9F2B00;"} adds new variables that are functions of existing variables.
 
-- select() picks variables based on their names.
+- [**select()**]{style="color:#9F2B00;"} picks variables based on their names.
 
-- filter() picks cases based on their values.
+- [**filter()**]{style="color:#9F2B00;"} picks cases based on their values.
 
-- summarise() reduces multiple values down to a single summary.
+- [**summarise()**]{style="color:#9F2B00;"} reduces multiple values down to a single summary.
 
-- arrange() changes the ordering of the rows.
+- [**arrange()**]{style="color:#9F2B00;"} changes the ordering of the rows.
 
-- group_by() you can perform computation across groups of a variable 
+- [**group_by()**]{style="color:#9F2B00;"} you can perform computation across groups of a variable 
 :::
 
 ## Installation
@@ -192,7 +183,7 @@ install.packages("tidyverse")
 
 ## {.right background-image="images/tidyverse.png" background-size="80%" background-position="50% 35%" alt="schematic including hex logos for the 9 tidyverse packages, readr, ggplot2, forcats, tidyr, tibble, dplyr, stringr, purrr, and lubridate"} 
 
-# Lets look at some common examples?
+# Lets look at some common examples? { background-color="black"}
 
 ## Let's first read in some data !!
 
@@ -209,7 +200,7 @@ reactable::reactable(head(garbage_collectors, 2))
 ```
 
 
-# Examples 
+# Examples { background-color="black"}
 
 ## filter()
 
@@ -245,16 +236,16 @@ dplyr provides the `%>%` operator from magrittr package.
 So the result from one step is then `piped` into the next step
 
 
-[x %>% f(y) turns into f(x, y)]{.fragment}
+[x %>% f(y) turns into f(x, y)]{.fragment style="color:#9F2B00;"}
 
-[*OR*]{.fragment} 
+[**OR**]{.fragment} 
 
-[x |> f(y) turns into f(x, y)]{.fragment}
+[x |> f(y) turns into f(x, y)]{.fragment style="color:#9F2B00;"}
 
 
 [You read the pipe as `Then`]{.fragment}
 
-# Examples using the pipe
+# Examples using the pipe { background-color="black"}
 
 ## filter() with the pipe
 
@@ -280,10 +271,10 @@ garbage_collectors %>%
 
 Imagine a question from your KCCA boss like:
 
-Please, send me a dataset of only 5 rows whose records where seen at kitezi, arranged in alphabetical order.
+Please, send me a dataset of only 5 rows whose records were seen at kitezi, arranged in alphabetical order.
 
 
-# Instead of the following steps
+# Instead of the following steps { background-color="black"}
 
 ## Step 1 {auto-animate="true"}
 
@@ -347,15 +338,16 @@ garbage_collectors |>
 ```
 
 
-# What about data wrangling with columns:
+# What about data wrangling with columns: { background-color="black"}
 
-## With columns your vibes may be
+## With columns your verbs/functions
 
-- `select()` changes whether or not a column is included.
-- `rename()` changes the name of columns.
-- `mutate()` changes the values of columns and creates new columns.
-- `relocate()` changes column order
+- [**select()**]{style="color:#9F2B00;"} changes whether or not a column is included.
+- [**rename()**]{style="color:#9F2B00;"} changes the name of columns.
+- [**mutate()**]{style="color:#9F2B00;"} changes the values of columns and creates new columns.
+- [**relocate()**]{style="color:#9F2B00;"} changes column order
 
+### [But first,]{.fragment}
 :::{.fragment}
 ### Which column names do we have
 
@@ -368,6 +360,7 @@ names(garbage_collectors)
 ## select {auto-animate="true"}
 
 ```{r}
+#| code-line-numbers: "2-3"
 garbage_collectors %>% 
   select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
          `LOGISTIC CAPACITY`, `AREA OF OPERATION`)
@@ -377,7 +370,7 @@ garbage_collectors %>%
 ## rename {auto-animate="true"}
 
 ```{r}
-
+#| code-line-numbers: "4-8"
 garbage_collectors %>% 
   select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
          `LOGISTIC CAPACITY`, `AREA OF OPERATION`) %>%
@@ -392,7 +385,7 @@ garbage_collectors %>%
 ## mutate {auto-animate="true"}
 
 ```{r}
-
+#| code-line-numbers: "9"
 garbage_collectors %>% 
   select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
          `LOGISTIC CAPACITY`, `AREA OF OPERATION`) %>%
@@ -410,7 +403,7 @@ garbage_collectors %>%
 ## relocate {auto-animate="true"}
 
 ```{r}
-
+#| code-line-numbers: "10"
 garbage_collectors %>% 
   select(`COMPANY NAME.`,`KCCA LICENSE`,`RECORDS AT KITEZI`, 
          `LOGISTIC CAPACITY`, `AREA OF OPERATION`) %>%
@@ -425,7 +418,7 @@ garbage_collectors %>%
 
 ```
 
-# Group by
+# Group by { background-color="black"}
 
 ## Step 1: Identify the column you want to group by {auto-animate="true"}
 
@@ -459,5 +452,9 @@ garbage_collectors %>%
 
 ## Resources 
 
-## Questions!!
+- https://dplyr.tidyverse.org/
+
+- https://r4ds.had.co.nz/transform.html
+
+# Questions!! { background-color="black"}
 
